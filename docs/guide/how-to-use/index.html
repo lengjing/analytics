@@ -1,0 +1,62 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>如何使用 · Analytics.js</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## 将 analytics.js 添加到网站中"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="如何使用 · Analytics.js"/><meta property="og:type" content="website"/><meta property="og:url" content="https://your-docusaurus-test-site.com/index.html"/><meta property="og:description" content="## 将 analytics.js 添加到网站中"/><meta property="og:image" content="https://your-docusaurus-test-site.com/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://your-docusaurus-test-site.com/img/docusaurus.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><h2 class="headerTitle">Analytics.js</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive siteNavItemActive"><a href="/docs/guide/how-to-use" target="_self">Docs</a></li><li class=""><a href="/docs/reference/command-queue" target="_self">Reference</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Guide</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Guide</h3><ul><li class="navListItem navListItemActive"><a class="navItem" href="/docs/guide/how-to-use">如何使用</a></li><li class="navListItem"><a class="navItem" href="/docs/guide/how-analytics-works">工作原理</a></li><li class="navListItem"><a class="navItem" href="/docs/guide/how-to-develop">如何开发此项目</a></li></ul></div></div></section></div><script>
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docMainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">如何使用</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="将-analyticsjs-添加到网站中"></a><a href="#将-analyticsjs-添加到网站中" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>将 analytics.js 添加到网站中</h2>
+<h3><a class="anchor" aria-hidden="true" id="常规方式-暂不支持"></a><a href="#常规方式-暂不支持" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>常规方式 (暂不支持)</h3>
+<p>将以下代码添加到网页中。</p>
+<pre><code class="hljs css language-javascript">&lt;!-- Mwee Analytics --&gt;
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">i,s,o,g,r,a,m</span>)</span>{i[<span class="hljs-string">'MweeAnalyticsObject'</span>]=r;i[r]=i[r]||<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+(i[r].q=i[r].q||[]).push(<span class="hljs-built_in">arguments</span>)},i[r].l=<span class="hljs-number">1</span>*<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();a=s.createElement(o),
+m=s.getElementsByTagName(o)[<span class="hljs-number">0</span>];a.async=<span class="hljs-number">1</span>;a.src=g;m.parentNode.insertBefore(a,m)
+})(<span class="hljs-built_in">window</span>,<span class="hljs-built_in">document</span>,<span class="hljs-string">'script'</span>,<span class="hljs-string">'https://www.mwee.cn/analytics.js'</span>,<span class="hljs-string">'ma'</span>);
+
+ma(<span class="hljs-string">'send'</span>, <span class="hljs-string">'pageview'</span>);
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
+&lt;!-- End Mwee Analytics --&gt;
+</code></pre>
+<p>这是使用 <code>ma.js</code> 最简单的方法，上述代码主要做了以下几件事:</p>
+<ol>
+<li>创建了一个 <code>&lt;script&gt;</code> 元素，并开始从 <code>https://www.mwee.cn/analytics.js</code> 异步下载 analytics.js 。</li>
+<li>初始化了一个全局函数 <code>ma</code>（称为 <code>ma()</code> 命令队列），你可以通过该函数来执行所有 <code>ma</code> 的方法。</li>
+<li>在 <code>ma()</code> 命令队列中添加另一条命令，发送自埋点数据。</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="异步加载方式-暂不支持"></a><a href="#异步加载方式-暂不支持" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>异步加载方式 (暂不支持)</h3>
+<p>或者可以用现代浏览器所支持的预加载功能的方式来引用。</p>
+<pre><code class="hljs css language-javascript">&lt;script&gt;
+<span class="hljs-built_in">window</span>.ma=<span class="hljs-built_in">window</span>.ma||<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{(ma.q=ma.q||[]).push(<span class="hljs-built_in">arguments</span>)};ma.l=+<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>;
+
+ma(<span class="hljs-string">'send'</span>, <span class="hljs-string">'pageview'</span>);
+<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
+&lt;script <span class="hljs-keyword">async</span> src=<span class="hljs-string">'https://www.mwee.cn/analytics.js'</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
+</code></pre>
+<p>注意：只有当你确定大多数的网站访问者都使用现代浏览器的时候才使用。</p>
+<h3><a class="anchor" aria-hidden="true" id="npm-包引用方式"></a><a href="#npm-包引用方式" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>npm 包引用方式</h3>
+<p>可以直接使用 npm 包的方式来引入。</p>
+<pre><code class="hljs css language-bash">npm install mw-analytics --registry=http://nexus.mwbyd.cn/nexus/content/groups/npm-group/
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-next button" href="/docs/guide/how-analytics-works"><span>Next</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav docOnPageNav"><ul class="toc-headings"><li><a href="#将-analyticsjs-添加到网站中">将 analytics.js 添加到网站中</a><ul class="toc-headings"><li><a href="#常规方式-暂不支持">常规方式 (暂不支持)</a></li><li><a href="#异步加载方式-暂不支持">异步加载方式 (暂不支持)</a></li><li><a href="#npm-包引用方式">npm 包引用方式</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/docusaurus.svg" alt="Analytics.js" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/guide/how-to-use.html">Getting Started</a><a href="/docs/en/doc2.html">Guides</a><a href="/docs/en/reference/command-queue">API Reference</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Your Name or Your Company Name</section></footer></div></body></html>

@@ -33,7 +33,7 @@ sidebar_label: 如何开发此项目
 └── website       # 文档站点
 ```
 
-## entry
+## entry
 
 该目录下放置了 2 个入口文件，分别用于生成不同的模块。
 当执行 `npm run dist` 后，根目录会生成一个 `dist` 目录包含三个文件

@@ -27,7 +27,7 @@ ma(command, [...fields], [fieldsObject])
 
 | 名称 | 类型 | 是否必须 | 说明 |
 | ---- | ---- | ---- | ---- |
-| command | string | 是 | 一个标识符 `[trackerName.]methodName` |
+| command| string |是|一个标识符 `[trackerName.]methodName`|
 |...fields|any|否|一个或多个可选便捷参数，用于快速指定常用字段。|
 |fieldsObject|object|否|用于指定 fields 参数中未指定的其余值的对象。|
 
@@ -153,5 +153,3 @@ ma('set', {model: '1111'});
 - hitPayload 请求数据
 - sendHitTask 请求方法
 - hitCallback 请求回调
-
-各字段的含义参考 [http://wiki.mwbyd.cn/pages/viewpage.action?pageId=23026697](http://wiki.mwbyd.cn/pages/viewpage.action?pageId=23026697)

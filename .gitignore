@@ -1,0 +1,8 @@
+/lib
+/dist
+/node_modules
+website/node_modules
+package-lock.json
+.DS_Store
+website/build/
+/coverage

@@ -1,0 +1,20 @@
+{
+  "docs": {
+    "Guide": [
+      "guide/how-to-use",
+      "guide/how-analytics-works",
+      "guide/how-to-develop"
+    ]
+  },
+  "docs-other": {
+    "Command queue": [
+      "reference/command-queue"
+    ],
+    "Functon methond": [
+      "reference/function-method"
+    ],
+    "Tracker": [
+      "reference/tracker"
+    ]
+  }
+}

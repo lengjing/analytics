@@ -103,3 +103,22 @@ export const BUILD_HIT_TASK = setHook('buildHitTask');
 export const SEND_HIT_TASK = setHook('sendHitTask');
 export const CHECK_COOKIE_TASK = setHook('checkCookieTask');
 export const CHECK_STORAGE_TASK = setHook('checkStorageTask');
+export const TIMING_TASK = setHook('timingTask');
+
+// 页面性能
+// 网页加载所需时间（onLoad 时间）
+export const PLT = setHook('plt', 'plt');
+// 页面下载所需时间(包括所有资源)
+export const PDT = setHook('pdt', 'pdt');
+// DNS 解析时间
+export const DNS = setHook('dns', 'dns');
+// 重定向响应时间
+export const RRT = setHook('rrt', 'rrt');
+// 服务器响应时间
+export const SRT = setHook('srt', 'srt');
+// TCP 连接时间
+export const TCP = setHook('tcp', 'tcp');
+// DOM 互动时间
+export const DIT = setHook('dit', 'dit');
+// DOM 加载时间
+export const CLT = setHook('clt', 'clt');

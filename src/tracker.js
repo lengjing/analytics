@@ -5,13 +5,15 @@ import {
   DOMAIN, ALLOW_ANCHOR, ALLOW_LINKER, HIT_TYPE, BUILD_HIT_TASK,
   SEND_HIT_TASK, BIZ, CLIENT_ID, COOKIE_DOMAIN,
   COOKIE_NAME, CHECK_COOKIE_TASK, COOKIE_PATH, COOKIE_EXPIRES,
-  CHECK_STORAGE_TASK, VERSION_OS, CONTAINER, DEVICE_PIXEL_RATIO
+  CHECK_STORAGE_TASK, VERSION_OS, CONTAINER, DEVICE_PIXEL_RATIO,
+  TIMING_TASK
 } from './hooks';
 import { isString, platform, version, transformInput, inBrowser, uuid, OS, container } from './util';
 import buildHitTask from './filters/build-hit';
 import sendHitTask from './filters/send-hit';
 import checkCookieTask from './filters/check-cookie';
 import checkStorageTask from './filters/check-storage';
+import timingTask from './filters/timing';
 
 const PARAMS_NAMES = {
   pageview: [],
@@ -57,6 +59,7 @@ export default class Tracker {
     }
 
     addFilter(CHECK_COOKIE_TASK, checkCookieTask);
+    addFilter(TIMING_TASK, timingTask);
     addFilter(CHECK_STORAGE_TASK, checkStorageTask);
     addFilter(BUILD_HIT_TASK, buildHitTask);
     addFilter(SEND_HIT_TASK, sendHitTask);
